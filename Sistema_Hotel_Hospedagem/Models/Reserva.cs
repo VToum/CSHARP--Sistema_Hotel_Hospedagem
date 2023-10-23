@@ -21,14 +21,15 @@ namespace Sistema_Hotel_Hospedagem.Models
         public Suite Suite { get; set; }
         public decimal DiasReservados { get; set; }
 
-       public void CadastrarHospedes(List<Pessoa> hospedes, int capacidade) 
+       public void CadastrarHospedes(Pessoa hospedes, int capacidade) 
         {
             Suite.Capacidade = capacidade;
 
-            foreach (var item in hospedes)
+            foreach (Pessoa item in hospedes)
             {
-                Hospedes.Add(item);
+                 Hospedes.Add(item);
             }
+
         }
 
         public void CadastrarSuite(Suite suite) 

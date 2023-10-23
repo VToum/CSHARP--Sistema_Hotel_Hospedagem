@@ -3,6 +3,8 @@
 bool hotelEmFuncionamento = true;
 Reserva reserva = new Reserva();
 Suite suite = new Suite();
+Pessoa pessoa = new Pessoa();
+
 Console.WriteLine("Seja Bem Vindo Ao Sistema De Hotel Hospedagem!");
 
 
@@ -67,16 +69,9 @@ while (hotelEmFuncionamento)
             }
             break;
         case "2":
-            Pessoa pessoa = new Pessoa();
             Console.WriteLine("Digite Nome do hospede: ");
-            pessoa.NomeComplete = Convert.ToString(Console.ReadLine());
-            List<Pessoa> hospedes = new List<Pessoa>();
-            hospedes.Add(pessoa);
-            foreach (var item in hospedes)
-            {
-                Console.WriteLine($"hospedes: {item}");
-            }
-            reserva.CadastrarHospedes(hospedes, suite.Capacidade);
+            pessoa = new Pessoa(Console.ReadLine());
+            reserva.CadastrarHospedes(pessoa, suite.Capacidade);
             break;
         case "3":
             int quant = reserva.ObterQuantidadeHospedes();
